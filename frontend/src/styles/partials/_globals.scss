@@ -1,0 +1,6 @@
+@use './variables.scss' as *;
+
+body {
+    margin: 0;
+    background-color: $PRIMARY-BACKGROUND;
+}
