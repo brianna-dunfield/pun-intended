@@ -26,7 +26,6 @@ async function getPuns(req, res) {
             }
         ]
     })
-
     res.json(completion.choices[0].message);
 }
 
@@ -35,4 +34,3 @@ app.get('/', getPuns);
 app.listen(port, () => {
 	console.log(`Server is listening on port ${port}`);
 });
-
