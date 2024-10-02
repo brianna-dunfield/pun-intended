@@ -1,0 +1,38 @@
+@use '../../styles/partials/mixins.scss';
+@use '../../styles/partials/variables.scss';
+
+.pun-generator{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    &__subtitle{
+        position: absolute;
+        top: 190px;
+        font-size: 32px;
+    }
+}
+
+.pun-topic{
+    position: relative;
+    &__input{
+        position: relative;
+        width: 28.125rem;
+        top: -9.375rem;
+        font-size: 1rem;
+        padding: 1rem;
+        border-radius: 3.125rem;
+    }
+    &__button{
+        display: block;
+        position: absolute;
+        z-index: 99;
+        top: -9.125rem;
+        right: .375rem;
+        font-size: 16px;
+        padding: 0.75rem;
+        border-radius: 3.125rem;
+        width: 7.5rem;
+    }
+}

@@ -1,0 +1,8 @@
+@use '../../styles/partials/mixins.scss';
+@use '../../styles/partials/variables.scss';
+
+.home{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

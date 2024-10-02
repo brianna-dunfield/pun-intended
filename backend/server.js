@@ -22,7 +22,7 @@ async function getPuns(req, res) {
         messages: [
             {
                 role: 'user',
-                content: `Give me 20 puns about ${punPrompt}`
+                content: `Give me a pun about ${punPrompt}`
             }
         ]
     })
