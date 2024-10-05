@@ -8,6 +8,7 @@
     align-items: center;
     justify-content: center;
     position: relative;
+    top: -3rem;
     &__subtitle{
         position: absolute;
         top: 190px;
@@ -48,6 +49,11 @@
         cursor: pointer;
         &:hover{
             background-color: $BUTTON-HOVER;
+        }
+        &-another{
+            position: relative;
+            width: 60%;
+            top: -6rem;
         }
     }
 }

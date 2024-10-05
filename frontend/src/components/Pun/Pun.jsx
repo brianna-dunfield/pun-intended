@@ -2,7 +2,7 @@ import './Pun.scss';
 import { useState, useEffect } from 'react';
 import { getPuns, getGif } from '../../utils/openai.js';
 
-export default function Pun({ currentTopic, requestSent }) {
+export default function Pun({ currentTopic, requestSent, generate, setPuns, puns }) {
 	const [pun, setPun] = useState('');
 	const [gifUrl, setGifUrl] = useState('');
 
@@ -13,6 +13,10 @@ export default function Pun({ currentTopic, requestSent }) {
 		const fetchData = async () => {
 			try {
 				const result = await getPuns(currentTopic);
+				if(puns.length>=5){
+					puns.pop();
+				}
+				setPuns([pun, ...puns]);
 				setPun(result.data.content);
 			} catch (error) {
 				console.error(error);
@@ -39,9 +43,9 @@ export default function Pun({ currentTopic, requestSent }) {
 	useEffect(() => {
 		requestPuns();
 		requestGif();
-	}, [currentTopic, requestSent]);
+	}, [currentTopic, requestSent, generate]);
 
-	if (!pun || (!gifUrl && requestSent)) {
+	if ((!pun || !gifUrl) && requestSent) {
 		return <p>Loading...</p>;
 	}
 
