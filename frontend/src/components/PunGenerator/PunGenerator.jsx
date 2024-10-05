@@ -1,40 +1,17 @@
 import './PunGenerator.scss';
-import { useState, useEffect } from 'react';
-import { getPuns } from '../../utils/openai.js';
+import { useState } from 'react';
+
 import titleImg from '../../assets/Title.svg';
+import Pun from '../Pun/Pun.jsx';
 
 export default function PunGenerator() {
 	const [punTopic, setPunTopic] = useState('');
 	const [currentTopic, setCurrentTopic] = useState('');
-	const [punsList, setPunsList] = useState('');
 	const [requestSent, setRequestSent] = useState(false);
 
 	const handleInputChange = (event) => {
 		setPunTopic(event.target.value);
 	};
-
-	const requestPuns = () => {
-		if (!requestSent) {
-			return;
-		}
-		const fetchData = async () => {
-			try {
-				const result = await getPuns(currentTopic);
-				setPunsList(result.data.content);
-			} catch (error) {
-				console.error(error);
-			}
-		};
-		fetchData();
-	};
-
-	useEffect(() => {
-		requestPuns();
-	}, [currentTopic]);
-
-	if (!punsList && requestSent) {
-		return <p>Loading...</p>;
-	}
 
 	const handleButtonClick = () => {
 		setRequestSent(true);
@@ -48,7 +25,7 @@ export default function PunGenerator() {
 				src={titleImg}
 				alt='Pun Intended'
 			/>
-            <h2 className='pun-generator__subtitle'>Enter a word</h2>
+            <h2 className='pun-generator__subtitle'>Enter A Word</h2>
 			<div className='pun-topic'>
 				<input
 					className='pun-topic__input'
@@ -66,7 +43,7 @@ export default function PunGenerator() {
 					Generate
 				</button>
 			</div>
-			<p>Puns: {punsList}</p>
+            {<Pun currentTopic={currentTopic} requestSent={requestSent}/>}
 		</section>
 	);
 }

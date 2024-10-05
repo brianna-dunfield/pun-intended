@@ -1,6 +1,9 @@
 @use './variables.scss' as *;
+@use './typography.scss' as *;
 
 body {
     margin: 0;
     background-color: $PRIMARY-BACKGROUND;
+    color: $PRIMARY-TEXT;
+    font-family: 'Nunito';
 }

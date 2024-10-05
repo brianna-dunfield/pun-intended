@@ -1,5 +1,6 @@
-@use '../../styles/partials/mixins.scss';
-@use '../../styles/partials/variables.scss';
+@use '../../styles/partials/mixins.scss' as *;
+@use '../../styles/partials/variables.scss' as *;
+@use '../../styles/partials/typography.scss' as *;
 
 .pun-generator{
     display: flex;
@@ -11,28 +12,42 @@
         position: absolute;
         top: 190px;
         font-size: 32px;
+        font-family: 'ComicSansMS';
     }
 }
 
 .pun-topic{
     position: relative;
     &__input{
+        box-sizing: border-box;
         position: relative;
-        width: 28.125rem;
-        top: -9.375rem;
+        width: 29.6875rem;
+        top: -11rem;
         font-size: 1rem;
         padding: 1rem;
         border-radius: 3.125rem;
+        border: 1px solid $PRIMARY-TEXT;
+        outline: none;
+        &:focus{
+            outline: 2px solid $OUTLINE;
+        }
     }
     &__button{
         display: block;
         position: absolute;
         z-index: 99;
-        top: -9.125rem;
-        right: .375rem;
+        top: -10.85rem;
+        right: .25rem;
         font-size: 16px;
         padding: 0.75rem;
         border-radius: 3.125rem;
         width: 7.5rem;
+        background-color: $BUTTON;
+        border: 1px solid $PRIMARY-TEXT;
+        font-family: 'Nunito';
+        cursor: pointer;
+        &:hover{
+            background-color: $BUTTON-HOVER;
+        }
     }
 }
