@@ -5,9 +5,16 @@ export default function RecentPuns({ puns }) {
 	return (
 		<aside className='recent-puns'>
 			<h3>Past Puns</h3>
-            {puns.map((pun)=>{
-                return <Box text={pun}/>
-            })}
+			{puns
+				? puns.map((pun, index) => {
+						return (
+							<Box
+								text={pun}
+								key={index}
+							/>
+						);
+				})
+				: null}
 		</aside>
 	);
 }

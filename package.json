@@ -3,19 +3,24 @@
 	"version": "1.0.0",
 	"main": "index.js",
 	"scripts": {
-		"test": "echo \"Error: no test specified\" && exit 1",
-		"backend":"npm run dev -w backend",
-		"frontend":"npm run dev -w frontend",
-		"start":"concurrently \"npm run backend\" \"npm run frontend\""
+	    "test": "echo \"Error: no test specified\" && exit 1",
+	    "backend": "npm run dev -w backend",
+	    "frontend": "npm run dev -w frontend",
+	    "start": "concurrently \"npm run backend\" \"npm run frontend\"",
+	    "build:frontend": "npm run build -w frontend",
+	    "deploy": "npm run build:frontend && firebase deploy"
 	},
 	"author": "",
 	"license": "ISC",
 	"description": "",
 	"workspaces": [
-		"backend",
-		"frontend"
+	    "backend",
+	    "frontend"
 	],
 	"devDependencies": {
-		"concurrently": "^9.0.1"
+	    "concurrently": "^9.0.1"
+	},
+	"dependencies": {
+	    "firebase": "^10.14.0"
 	}
 }
